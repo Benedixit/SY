@@ -4,7 +4,7 @@ import { useState, FormEvent } from "react"
 import axios from 'axios'
 
 
-export default function newsletterForm () {
+export default function NewsletterForm () {
 
     const [email, setEmail] = useState<string>('')
     const [name, setName] = useState<string>('')

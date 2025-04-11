@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next"
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 
 
 type Data = {
@@ -42,10 +42,12 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
         return res.status(201).json({ message: 'Successfully Subscribed'})
     }
 
-    catch (error: any){
-        const errMsg = error?.response?.data?.detail ||
-        error?.message || 
+    catch (error: unknown){
+        const err = error as AxiosError<{ detail?: string }>
+        const errMsg = err?.response?.data?.detail ||
+        err?.message || 
         'An unexpected error occured'
+        
         return res.status(400).json({error: errMsg})
     }
     
