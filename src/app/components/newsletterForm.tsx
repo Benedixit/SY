@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, FormEvent } from "react"
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 
 
 export default function NewsletterForm () {
@@ -21,8 +21,9 @@ export default function NewsletterForm () {
             setMessage(res.data.message || "Success")
             setEmail('')
             setName('')
-        } catch (err: any) {
-            setMessage(err.response?.data?.error || 'Something Went Wrong')
+        } catch (error: unknown) {
+          const err = error as AxiosError<{ detail?: string }>
+          setMessage(err.response?.data?.detail || 'Something Went Wrong')
         } finally {
             setLoading (loading)
         }
