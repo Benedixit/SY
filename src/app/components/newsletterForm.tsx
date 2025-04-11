@@ -13,7 +13,7 @@ export default function NewsletterForm () {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
-        setMessage('')
+        setMessage(message)
         setLoading(true)
 
         try {
@@ -24,7 +24,7 @@ export default function NewsletterForm () {
         } catch (err: any) {
             setMessage(err.response?.data?.error || 'Something Went Wrong')
         } finally {
-            setLoading (false)
+            setLoading (loading)
         }
     }
 
