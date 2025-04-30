@@ -1,0 +1,133 @@
+{
+  "format": "custom",
+  "id": "homepage",
+  "label": "Homepage",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "headline": {
+        "type": "Text",
+        "config": {
+          "label": "Hero Headline",
+          "placeholder": ""
+        }
+      },
+      "hero_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Hero Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "featured_services": {
+        "type": "Group",
+        "config": {
+          "label": "Featured Services",
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "text": {
+              "type": "Text",
+              "config": {
+                "label": "text",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "testimonial": {
+        "type": "Group",
+        "config": {
+          "label": "Testimonial",
+          "repeat": false,
+          "fields": {
+            "country_flag": {
+              "type": "Image",
+              "config": {
+                "label": "Country Flag",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "customer_name": {
+              "type": "Text",
+              "config": {
+                "label": "Customer Name",
+                "placeholder": ""
+              }
+            },
+            "customer_text": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Customer Text",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "customer_pic": {
+              "type": "Image",
+              "config": {
+                "label": "customer pic",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      },
+      "newsletter_headline": {
+        "type": "Text",
+        "config": {
+          "label": "Newsletter Headline",
+          "placeholder": ""
+        }
+      },
+      "newsletter_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Newsletter Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "radio_headline": {
+        "type": "Image",
+        "config": {
+          "label": "Radio Headline",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "radio_text": {
+        "type": "Text",
+        "config": {
+          "label": "Radio Text",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

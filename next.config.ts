@@ -5,9 +5,15 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'pub-335ea302502b4be883413e4c10afa703.r2.dev', // Remove 'https://' here
+        hostname: 'pub-335ea302502b4be883413e4c10afa703.r2.dev',
         port: '',
-        pathname: '/images/**', // This is fine, it matches all paths under /images/
+        pathname: '/images/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.prismic.io',
+        port: '',
+        pathname: '/benedixit/**',
       },
     ],
   },

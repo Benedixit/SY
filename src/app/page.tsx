@@ -1,8 +1,26 @@
 import Image from "next/image";
 import LottieAnimation from "./components/radioLottie";
+import { PrismicRichText } from '@prismicio/react'
+import { createClient } from  './../prismicio'
 
 
-export default function Home() {
+interface Service {
+  link: any;
+  label: string;
+  text: any;
+  [key: string]: any;
+
+}
+
+export default async function Home() {
+
+
+  const client = createClient()
+  const pages: { [key: string]: any } = await client.getByTag("home")
+  const data = pages.results[0].data
+  console.log(data)
+
+
   return (
     <>
       <section className="text-[#282829] font-[family-name:var(--font-lexend)] font-light lg:bg-transparent bg-no-repeat space-y-14 bg-bottom bg-cover xl:px-32 px-10 lg:py-48 pt-32">
@@ -27,7 +45,7 @@ export default function Home() {
 
         </div>
 
-        <div className="lg:flex justify-center mt-12 gap-0 m-0 hidden">
+        <div className="md:flex justify-center mt-12 gap-0 m-0 hidden">
           <div className="rounded-full w-48 h-48 m-0 flex justify-center">
             <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/hero_2.jpeg" alt="Sabi You - App For Learning Languages" width={500} height={500} className="h-40 w-40 rounded-full object-cover object-center" />
           </div>
@@ -57,54 +75,24 @@ export default function Home() {
 
 
         <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-[100%] gap-4 justify-stretch content-center justify-items-center mb-16">
+          {data.featured_services.map((service: Service, index: any) => {
+            return (
+
+              <div key={index} className="border-1 border-zinc-400 p-10 bg-[#f7c6ff]/20 shadow-lg rounded-xl flex flex-col space-y-4">
+                <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/37cd95c0ba5cd5d93f88b0ed33c42203.png" width={500} height={500} alt="Sabi You Culture Learning Feature Image" className="w-22" />
+                <h2 className="text-xl/[40px] tracking-tighter font-bold">{service?.label}</h2>
+                <p className=" text-[18px]/[30px]"> {service?.text}</p>
+                <a href="" className="text-[#53007B]">Learn More</a>
+              </div>
+
+            )
+          })}
+
+          
 
 
 
-          <div className="border-1 border-zinc-400 p-10 bg-[#f7c6ff]/20 shadow-lg rounded-xl flex flex-col space-y-4">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/37cd95c0ba5cd5d93f88b0ed33c42203.png" width={500} height={500} alt="Sabi You Culture Learning Feature Image" className="w-22" />
-            <h2 className="text-xl/[40px] tracking-tighter font-bold">Cultural Storytelling</h2>
-            <p className=" text-[18px]/[30px]">Read and learn about Nigerian culture to help shape your ideas about your roots.</p>
-            <a href="" className="text-[#53007B]">Learn More</a>
-          </div>
-
-          <div className="border-1 border-zinc-400 p-10 bg-[#f7c6ff]/20 shadow-lg rounded-xl flex flex-col space-y-4">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/ebd91de88906c016dccdc5f7be7c5a72.png" width={500} height={500} alt="Sabi You Culture Learning Feature Image" className="w-22" />
-            <h2 className="text-xl/[40px] text-[#282829]  tracking-tighter font-bold">Take Fun Quizzes</h2>
-            <p className=" text-[18px]/[30px]">Test your cultural knowledge & win rewards from our cultural stories.</p>
-            <a href="" className="text-[#53007B]">Learn More</a>
-          </div>
-
-          <div className="border-1 border-zinc-400 p-10 bg-[#f7c6ff]/20 shadow-lg rounded-xl flex flex-col space-y-4">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/3ca39f8907a9aed6dce9b4a07b6a5948.png" width={500} height={500} alt="Sabi You Culture Learning Feature Image" className="w-22" />
-            <h2 className="text-xl/[40px] tracking-tighter font-bold">Shop African Merchandise</h2>
-            <p className=" text-[18px]/[30px]">Get authentic cultural apparel & accessories from our store.</p>
-            <a href="" className="text-[#53007B]">Learn More</a>
-          </div>
-
-
-          <div className="border-1 border-zinc-400 p-10 bg-[#f7c6ff]/20 shadow-lg rounded-xl flex flex-col space-y-4">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/f44a3c01b6e7e751b2972d5795586cff.png" width={500} height={500} alt="Sabi You Culture Learning Feature Image" className="w-22" />
-            <h2 className="text-xl/[40px] tracking-tighter font-bold">Join Discussion Forum
-            </h2>
-            <p className=" text-[18px]/[30px]">Engage in meaningful cultural conversations in our discussion forum</p>
-            <a href="" className="text-[#53007B]">Learn More</a>
-          </div>
-
-          <div className="border-1 border-zinc-400 p-10 bg-[#f7c6ff]/20 shadow-lg rounded-xl flex flex-col space-y-4">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/daff035c34c96f01c6b4791e6fff884f.png" width={500} height={500} alt="Sabi You Culture Learning Feature Image" className="w-22" />
-            <h2 className="text-xl/[40px] tracking-tighter font-bold">Radio Talk Show
-            </h2>
-            <p className=" text-[18px]/[30px]">Listen to recorded discussions about various cultures and how it impacts our lives.</p>
-            <a href="" className="text-[#53007B]">Learn More</a>
-          </div>
-
-          <div className="border-1 border-zinc-400 p-10 bg-[#f7c6ff]/20 shadow-lg rounded-xl flex flex-col space-y-4">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/translator.svg" width={500} height={500} alt="Sabi You Culture Learning Feature Image" className="w-22" />
-            <h2 className="text-xl/[40px] tracking-tighter font-bold">Fun Language learning
-            </h2>
-            <p className=" text-[18px]/[30px]">Read and learn  about Nigerian culture to help shape your ideas about your roots.</p>
-            <a href="" className="text-[#53007B]">Learn More</a>
-          </div>
+  
         </div>
       </section>
 
