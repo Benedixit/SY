@@ -37,7 +37,7 @@ export default async function Home() {
 
   const client = createClient()
   const pages = await client.getByTag("home")
-  const data = pages?.results[0]?.data
+  const data = pages?.results[0]?.data as any
 
 
   const testimonials: { [key: string]: any } = await client.getByTag("testimonial")
