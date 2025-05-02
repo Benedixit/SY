@@ -22,8 +22,15 @@ interface TeamMember {
 export default async function Page() {
 
     const client = createClient()
-    const pages: { [key: string]: any } = await client.getByTag("about")
-    const data = pages.results[0].data
+    const pages = await client.getByTag("about");
+    const data = pages?.results?.[0]?.data as {
+      mission_headline: string;
+      mission_text: any;
+      vision_headline: string;
+      vision_text: any;
+      story_img: { url: string };
+      team: TeamMember[];
+    };
 
 
     return (

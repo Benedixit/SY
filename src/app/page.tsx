@@ -1,6 +1,5 @@
 import Image from "next/image";
 import LottieAnimation from "./components/radioLottie";
-import { PrismicRichText, PrismicImage } from '@prismicio/react'
 import { createClient } from  './../prismicio'
 
 
@@ -31,11 +30,11 @@ interface Service {
   [key: string]: any;
 
 }
-type Params = { uid: string }
 
-export default async function Home({ params }: { params: Promise<Params> }) {
 
-  const { uid } = await params
+export default async function Home() {
+
+
   const client = createClient()
   const pages: { [key: string]: any } = await client.getByTag("home")
   const data = pages.results[0].data
