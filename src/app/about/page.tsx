@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { PrismicRichText } from '@prismicio/react'
-import { createClient } from '../prismicio'
+import { createClient } from '../../prismicio'
 
 
 interface ProfilePic {
