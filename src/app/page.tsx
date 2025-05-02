@@ -1,7 +1,27 @@
 import Image from "next/image";
 import LottieAnimation from "./components/radioLottie";
-import { PrismicRichText } from '@prismicio/react'
+import { PrismicRichText, PrismicImage } from '@prismicio/react'
 import { createClient } from  './../prismicio'
+
+
+export const metadata = {
+  title: 'SabiYou - Discover Your African Roots',
+  description: 'Discover, learn, and reconnect with your African roots through storytelling and cultural experiences.',
+  openGraph: {
+    title: 'Contact Us',
+    description: 'Get in touch with us through our contact page.',
+    url: 'https://yourdomain.com/contact',
+    images: ['https://yourdomain.com/images/contact-preview.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Us',
+    description: 'Get in touch with us through our contact page.',
+    images: ['https://yourdomain.com/images/contact-preview.jpg'],
+  },
+};
+
+
 
 
 interface Service {
@@ -11,15 +31,18 @@ interface Service {
   [key: string]: any;
 
 }
+type Params = { uid: string }
 
-export default async function Home() {
+export default async function Home({ params }: { params: Promise<Params> }) {
 
-
+  const { uid } = await params
   const client = createClient()
   const pages: { [key: string]: any } = await client.getByTag("home")
   const data = pages.results[0].data
-  console.log(data)
 
+
+  const testimonials: { [key: string]: any } = await client.getByTag("testimonial")
+  const testimonial_data = testimonials.results[0].data
 
   return (
     <>
@@ -129,42 +152,23 @@ export default async function Home() {
 
 
         <div className="grid grid-cols-1 lg:grid-cols-3 content-center gap-y-6 gap-x-4 pt-10">
-          <div className="border-1 border-zinc-400 flex flex-col gap-y-4 bg-[#f7c6ff]/20 rounded-2xl shadow-lg p-7">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/flags/uk.svg" alt="Sabiyou Testimonial From Customer" width={500} height={500} className="w-18 py-4" />
-            <p>Growing up abroad, I
-              always felt disconnected from my Nigerian heritage. Sabiyou changed that!
-              Through their cultural language lessons, I’ve learned Yoruba and now feel closer to my roots.</p>
 
-            <div className="flex gap-x-2 content-center pt-6">
-              <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/avatar.jpg" alt="Sabiyou's Customer Photo" width={500} height={500} className="w-16 h-16 object-fill rounded-full" />
-              <p className="font-bold self-center">Jeffrey Okechukwu</p>
-            </div>
-          </div>
+          {testimonial_data.group.map((item: any, index: any) => {
+            return (
+            <div key={index} className="border-1 border-zinc-400 flex flex-col gap-y-4 bg-[#f7c6ff]/20 rounded-2xl shadow-lg p-7">
+              <Image src={item.country_flag.url} alt="Sabiyou Testimonial From Customer" width={500} height={500} className="w-18 py-4" />
+              <p>{item.text}</p>
+  
+              <div className="flex gap-x-2 content-center pt-6">
+                <Image src={item.avatar.url} alt="Sabiyou's Customer Photo" width={500} height={500} className="w-16 h-16 object-fill rounded-full" />
+                <p className="font-bold self-center">Jeffrey Okechukwu</p>
+              </div>
+            </div>)
+             
 
-          <div className="border-1 border-zinc-400 flex flex-col gap-y-4 bg-[#f7c6ff]/20 rounded-2xl shadow-lg p-7">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/flags/uk.svg" alt="Sabiyou Testimonial From Customer" width={500} height={500} className="w-18 py-4" />
-            <p>Growing up abroad, I
-              always felt disconnected from my Nigerian heritage. Sabiyou changed that!
-              Through their cultural language lessons, I’ve learned Yoruba and now feel closer to my roots.</p>
+          })}
 
-            <div className="flex gap-x-2 content-center pt-6">
-              <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/avatar.jpg" alt="Sabiyou's Customer Photo" width={500} height={500} className="w-16 h-16 object-fill rounded-full" />
-              <p className="font-bold self-center">Jeffrey Okechukwu</p>
-            </div>
-          </div>
-
-          <div className="border-1 border-zinc-400 flex flex-col gap-y-4 bg-[#f7c6ff]/20 rounded-2xl shadow-lg p-7">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/flags/uk.svg" alt="Sabiyou Testimonial From Customer" width={500} height={500} className="w-18 py-4" />
-            <p>Growing up abroad, I
-              always felt disconnected from my Nigerian heritage. Sabiyou changed that!
-              Through their cultural language lessons, I’ve learned Yoruba and now feel closer to my roots.</p>
-
-            <div className="flex gap-x-2 content-center pt-6">
-              <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/avatar.jpg" alt="Sabiyou's Customer Photo" width={500} height={500} className="w-16 h-16 object-fill rounded-full" />
-              <p className="font-bold self-center">Jeffrey Okechukwu</p>
-            </div>
-          </div>
-
+         
 
 
         </div>

@@ -34,10 +34,11 @@
               }
             },
             "country_flag": {
-              "type": "Text",
+              "type": "Image",
               "config": {
                 "label": "country_flag",
-                "placeholder": ""
+                "constraint": {},
+                "thumbnails": []
               }
             }
           }

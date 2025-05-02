@@ -622,12 +622,12 @@ export interface TestimonialDocumentDataGroupItem {
   /**
    * country_flag field in *testimonial → group*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
    * - **API ID Path**: testimonial.group[].country_flag
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  country_flag: prismic.KeyTextField;
+  country_flag: prismic.ImageField<never>;
 }
 
 /**
