@@ -37,9 +37,9 @@ export default async function Page() {
     return (
         <>
             <section
-                className="text-[#282829] text-center space-y-16 pt-50 pb-16 lg:px-32 px-10 font-[family-name:var(--font-lexend)]  font-light text-[18px] leading-loose flex flex-col place-items-center">
+                className="text-[#282829] text-left md:text-center space-y-16 xl:pt-50 pt-32 lg:px-32 px-10 font-[family-name:var(--font-lexend)]  font-light text-[18px] leading-loose flex flex-col place-items-center">
                 <div className="space-y-6">
-                    <h1 className="lg:text-7xl/[80px] md:text-6xl/[70px] text-[#282829] text-left md:text-center font-[family-name:var(--font-raleway)] tracking-tighter text-4xl/[50px] font-bold">About <span
+                    <h1 className="lg:text-7xl/[80px] md:text-6xl/[70px]  font-[family-name:var(--font-raleway)] tracking-tighter text-4xl/[50px] font-bold">About <span
                         className="text-[#53007B]">SabiYou</span></h1>
                     <p>SabiYou is more than a platform—it’s a movement dedicated to preserving and <br
                         className="hidden lg:block" />celebrating African
@@ -57,8 +57,8 @@ export default async function Page() {
                             className="space-y-4 bg-[#FDF4FF] bg-blend-multiply lg:m-6 m-2 p-10 rounded-2xl border-1 border-zinc-400 shadow-lg self-end">
 
                             <h2 className="text-sm uppercase tracking-wide text-[#53007B]">Our mission</h2>
-                            <h1 className="text-2xl font-[Raleway] font-bold tracking-tight">{data?.mission_headline}</h1>
-                            <div className="text-[18px] leading-loose"><PrismicRichText field={data?.vision_text} />
+                            <h1 className="text-2xl font-[family-name:var(--font-raleway)] font-bold tracking-tight">{data?.mission_headline}</h1>
+                            <div className="text-[18px] leading-loose"><PrismicRichText field={data?.mission_text} />
                             </div>
                         </div>
                     </div>
@@ -69,8 +69,8 @@ export default async function Page() {
 
                         <div className="space-y-4 bg-[#f7c6ff]/20 p-10 border-1 border-zinc-400 rounded-2xl self-end shadow-lg">
                             <h2 className="text-sm uppercase tracking-wide">Our story</h2>
-                            <h1 className="text-2xl font-[Raleway] font-bold tracking-tight">{data?.vision_headline}</h1>
-                            <div className="leading-loose"><PrismicRichText field={data?.mission_text} />
+                            <h1 className="text-2xl font-[family-name:var(--font-raleway)] font-bold tracking-tight">{data?.vision_headline}</h1>
+                            <div className="leading-loose"><PrismicRichText field={data?.vision_text} />
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@ export default async function Page() {
             </section>
 
             <section className="py-16 xl:px-32 px-10 space-y-10 text-[#282829] font-[family-name:var(--font-lexend)]">
-                <h1 className="font-[family-name:var(--font-Raleway)] font-bold text-4xl tracking-tight">Meet Our Team</h1>
+                <h1 className="font-[family-name:var(--font-raleway)] font-bold text-4xl tracking-tight">Meet Our Team</h1>
                 <p className="font-[family-name:var(--font-lexend)] font-light text-[18px] leading-loose w-full lg:w-1/2 md:w-2/3">We are a group of passionate creators, thinkers, and doers—each bringing unique skills and perspectives to the table. Together, we collaborate, innovate, and push boundaries to turn ideas into impact.</p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10">
                     {data.team.map((member: TeamMember) => {
@@ -123,7 +123,7 @@ export default async function Page() {
                     <div className=" text-[18px]/[34px] text-left tracking-tight rounded-5xl self-center lg:p-20 p-10">
                         <div className="flex flex-col gap-y-4 pb-6">
 
-                            <h1 className="lg:text-4xl leading-normal text-3xl font-[Raleway] tracking-tighter font-bold">
+                            <h1 className="lg:text-4xl leading-normal text-3xl font-[family-name:var(--font-raleway)] tracking-tighter font-bold">
                                 Tune To SabiYou Radio</h1>
                             <p className="leading-loose text-[18px]">Immerse yourself in the heart of our culture with SabiYou Radio. Tune in and discover captivating stories, music, and conversations that celebrate our rich heritage.</p>
                             <div className="pt-4">
