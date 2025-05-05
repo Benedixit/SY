@@ -89,7 +89,7 @@ export default async function Page() {
 
             <section className="py-16 xl:px-32 px-10 space-y-10 text-[#282829] font-[family-name:var(--font-lexend)]">
                 <h1 className="font-[family-name:var(--font-Raleway)] font-bold text-4xl tracking-tight">Meet Our Team</h1>
-                <p className="font-[family-name:var(--font-lexend)] font-light text-[18px] leading-loose w-full lg:w-1/2 md:w-2/3">We're a group of passionate creators, thinkers, and doers—each bringing unique skills and perspectives to the table. Together, we collaborate, innovate, and push boundaries to turn ideas into impact.</p>
+                <p className="font-[family-name:var(--font-lexend)] font-light text-[18px] leading-loose w-full lg:w-1/2 md:w-2/3">We are a group of passionate creators, thinkers, and doers—each bringing unique skills and perspectives to the table. Together, we collaborate, innovate, and push boundaries to turn ideas into impact.</p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10">
                     {data.team.map((member: TeamMember) => {
 
