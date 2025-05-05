@@ -55,17 +55,6 @@ interface AboutDocumentData {
   mission_headline: prismic.KeyTextField;
 
   /**
-   * Mission Text field in *About*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.mission_text
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  mission_text: prismic.RichTextField;
-
-  /**
    * Story Headline field in *About*
    *
    * - **Field Type**: Text
@@ -75,17 +64,6 @@ interface AboutDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   vision_headline: prismic.KeyTextField;
-
-  /**
-   * Story Text field in *About*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.vision_text
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  vision_text: prismic.RichTextField;
 
   /**
    * Team field in *About*
@@ -119,6 +97,28 @@ interface AboutDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   story_img: prismic.ImageField<never>;
+
+  /**
+   * vision_text field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.vision_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  vision_text: prismic.KeyTextField;
+
+  /**
+   * Mission Text field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.mission_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mission_text: prismic.KeyTextField;
 }
 
 /**

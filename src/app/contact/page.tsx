@@ -1,6 +1,5 @@
 import Image from "next/image";
 import GoogleMap from "../components/GoogleMap";
-import Head from 'next/head';
 
 
 export const metadata = {

@@ -13,29 +13,11 @@
           "placeholder": ""
         }
       },
-      "mission_text": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Mission Text",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph"
-        }
-      },
       "vision_headline": {
         "type": "Text",
         "config": {
           "label": "Story Headline",
           "placeholder": ""
-        }
-      },
-      "vision_text": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Story Text",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
       "team": {
@@ -83,6 +65,20 @@
           "label": "Story Image",
           "constraint": {},
           "thumbnails": []
+        }
+      },
+      "vision_text": {
+        "type": "Text",
+        "config": {
+          "label": "vision_text",
+          "placeholder": ""
+        }
+      },
+      "mission_text": {
+        "type": "Text",
+        "config": {
+          "label": "Mission Text",
+          "placeholder": ""
         }
       }
     }

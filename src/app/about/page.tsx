@@ -6,7 +6,6 @@ import { createClient } from '../../prismicio'
 interface ProfilePic {
     url: string;
     alt: string;
-    [key: string]: any;
 
 }
 
@@ -15,7 +14,21 @@ interface TeamMember {
     name: string;
     role: string;
     profile_pic: ProfilePic;
-    [key: string]: any;
+}
+
+
+interface RichTextBlock {
+    text: string,
+    type: string,
+}
+
+type AboutData = {
+    mission_headline: string;
+    mission_text: RichTextBlock[];
+    vision_headline: string;
+    vision_text: RichTextBlock[];
+    story_img: { url: string };
+    team: TeamMember[];
 }
 
 
@@ -23,14 +36,9 @@ export default async function Page() {
 
     const client = createClient()
     const pages = await client.getByTag("about");
-    const data = pages?.results?.[0]?.data as {
-      mission_headline: string;
-      mission_text: any;
-      vision_headline: string;
-      vision_text: any;
-      story_img: { url: string };
-      team: TeamMember[];
-    };
+    const data = pages.results[0].data as unknown as AboutData
+
+    console.log(data)
 
 
     return (
@@ -39,7 +47,7 @@ export default async function Page() {
                 className="text-[#282829] text-center space-y-16 pt-50 pb-16 lg:px-32 px-10 font-[family-name:var(--font-lexend)]  font-light text-[18px] leading-loose flex flex-col place-items-center">
                 <div className="space-y-6">
                     <h1 className="lg:text-7xl/[80px] md:text-6xl/[70px] text-[#282829] text-left md:text-center font-[family-name:var(--font-raleway)] tracking-tighter text-4xl/[50px] font-bold">About <span
-                        className="text-[#53007B]">SabiYou</span></h1>
+                        className="text-[#53007B]">SabiYou</span></h1>sab
                     <p>SabiYou is more than a platform—it’s a movement dedicated to preserving and <br
                         className="hidden lg:block" />celebrating African
                         culture through storytelling, discussion, and learning.</p>
