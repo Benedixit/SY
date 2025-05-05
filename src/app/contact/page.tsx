@@ -27,7 +27,7 @@ export default async function Contact() {
        
             
             <section className="grid lg:grid-cols-2 xl:px-32 px-10 xl:gap-x-24 gap-10 space-y-20 pt-48 xl:pb-32 pb-10 font-[family-name:var(--font-lexend)] text-[18px]/[34px] font-light text-[#282829]">
-            <div className="h-full xl:bg-[url('/images/54675.jpg')] bg-transparent xl:py-10 flex rounded-2xl">
+            <div className="h-full w-full xl:bg-[url('/images/54675.jpg')] bg-transparent xl:py-10 flex rounded-2xl">
                 <div className="flex flex-col space-y-8 bg-[#FDF4FF] xl:mx-10 p-10 border-1 border-zinc-400 rounded-2xl shadow-lg self-center place-content-center h-full">
                     <h1 className="text-5xl font-[family-name:var(--font-Raleway)] font-medium text-[#53007B] tracking-tight">Contact Us</h1>
                     <p>Have questions, feedback, or just want to say hello? Reach out to the Sabiyou team — we’re here to help and always happy to connect.</p>

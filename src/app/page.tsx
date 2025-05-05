@@ -24,33 +24,42 @@ export const metadata = {
 
 
 interface Service {
-  link: any;
+  link: string;
   label: string;
-  text: any;
-  [key: string]: any;
+  text: string;
+}
 
+interface GroupImage {
+  alt: string;
+  url: string;
 }
 
 
-interface HomePageData {
-  featured_services: Service[];
-  headline: string,
-  newsletter_headline: string,
-}
+interface Group {
+  avatar: GroupImage;
+  country_flag: GroupImage;
+  text: string
 
+
+}
 
 export default async function Home() {
 
 
   const client = createClient()
   const pages = await client.getByTag("home")
-  const data = pages?.results[0]?.data as any
+  const data = pages?.results[0]?.data as {
+    featured_services: Service[]
+  }
 
   console.log(data)
 
 
-  const testimonials: { [key: string]: any } = await client.getByTag("testimonial")
-  const testimonial_data = testimonials.results[0].data
+  const testimonials = await client.getByTag("testimonial")
+  const testimonial_data = testimonials.results[0].data as {
+    group: Group[];
+  }
+  console.log(testimonials)
 
   return (
     <>
