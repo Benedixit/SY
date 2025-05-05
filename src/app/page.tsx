@@ -32,12 +32,21 @@ interface Service {
 }
 
 
+interface HomePageData {
+  featured_services: Service[];
+  headline: string,
+  newsletter_headline: string,
+}
+
+
 export default async function Home() {
 
 
   const client = createClient()
   const pages = await client.getByTag("home")
   const data = pages?.results[0]?.data as any
+
+  console.log(data)
 
 
   const testimonials: { [key: string]: any } = await client.getByTag("testimonial")
@@ -97,7 +106,7 @@ export default async function Home() {
 
 
         <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-[100%] gap-4 justify-stretch content-center justify-items-center mb-16">
-          {data?.featured_services.map((service: Service, index: any) => {
+          {data?.featured_services?.map((service: Service, index: any) => {
             return (
 
               <div key={index} className="border-1 border-zinc-400 p-10 bg-[#f7c6ff]/20 shadow-lg rounded-xl flex flex-col space-y-4">
