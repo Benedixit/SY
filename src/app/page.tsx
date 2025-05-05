@@ -115,7 +115,7 @@ export default async function Home() {
 
 
         <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-[100%] gap-4 justify-stretch content-center justify-items-center mb-16">
-          {data?.featured_services?.map((service: Service, index: any) => {
+          {data?.featured_services?.map((service: Service, index: number) => {
             return (
 
               <div key={index} className="border-1 border-zinc-400 p-10 bg-[#f7c6ff]/20 shadow-lg rounded-xl flex flex-col space-y-4">
@@ -170,7 +170,7 @@ export default async function Home() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 content-center gap-y-6 gap-x-4 pt-10">
 
-          {testimonial_data.group.map((item: any, index: any) => {
+          {testimonial_data.group.map((item: Group, index: number) => {
             return (
             <div key={index} className="border-1 border-zinc-400 flex flex-col gap-y-4 bg-[#f7c6ff]/20 rounded-2xl shadow-lg p-7">
               <Image src={item.country_flag.url} alt="Sabiyou Testimonial From Customer" width={500} height={500} className="w-18 py-4" />
