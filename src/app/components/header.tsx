@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image"
 import { useState } from "react"
+import Link from "next/link"
 
 
 export default function Header() {
@@ -12,10 +13,10 @@ export default function Header() {
             <nav className="grid grid-cols-2 justify-center py-6 lg:mx-32 4xl:mx-64 mx-10 rounded-2xl">
                 <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/sabiyou_logo.png" alt="Sabiyou Logo" width={150} height={150} className="lg:w-20 w-14" />
                 <ul className="lg:flex gap-x-4 hidden place-items-center place-self-end">
-                    <li className="py-2 px-4 rounded-lg hover:text-[#53007B]">Home</li>
-                    <li className="py-2 px-4 rounded-lg hover:text-[#53007B]">About</li>
+                    <li className="py-2 px-4 rounded-lg hover:text-[#53007B]"><Link href="/">Home</Link></li>
+                    <li className="py-2 px-4 rounded-lg hover:text-[#53007B]"><Link href="/about">About</Link></li>
                     <li className="py-2 px-4 rounded-lg hover:text-[#53007B]">Blog</li>
-                    <li><a href="" className="px-6 py-3 font-medium border-2 border-transparent hover:border-[#53007B] hover:bg-transparent bg-[#53007B] hover:text-[#53007B] text-white rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#53007B] focus:ring-offset-2 transition duration-300 ease-in-out">Contact Us</a></li>
+                    <li><Link href="/contact" className="px-6 py-3 font-medium border-2 border-transparent hover:border-[#53007B] hover:bg-transparent bg-[#53007B] hover:text-[#53007B] text-white rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#53007B] focus:ring-offset-2 transition duration-300 ease-in-out">Contact Us</Link></li>
                 </ul>
 
 
