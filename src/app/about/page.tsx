@@ -3,6 +3,39 @@ import { createClient } from '../../prismicio'
 import { PrismicDocument } from '@prismicio/types'
 import { PrismicRichText } from '@prismicio/react'
 
+export const metadata = {
+  title: 'About SabiYou - Our Mission, Vision & Team',
+  description:
+    'Learn about the mission, vision, and people behind SabiYou — a platform preserving African culture through storytelling, language, and community.',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    site_name: 'SabiYou',
+    title: 'About SabiYou - Our Mission, Vision & Team',
+    description:
+      'Meet the minds behind SabiYou and discover how we’re preserving African culture through storytelling and immersive learning.',
+    url: 'https://sabiyou.com/about',
+    images: [
+      {
+        url: 'https://sabiyou.com/images/about-preview.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'SabiYou Team - African Storytelling Platform',
+        type: 'image/jpeg',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About SabiYou - Our Mission, Vision & Team',
+    description:
+      'Learn about the people and purpose driving SabiYou’s mission to preserve and celebrate African heritage.',
+    images: ['https://sabiyou.com/images/about-preview.jpg'],
+  },
+};
+
+
+
 interface ProfilePic {
     url: string;
     alt: string;

@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/images/**',
       },
+
+       {
+        protocol: 'https',
+        hostname: 'sabiyou2025.wordpress.com',
+        port: '',
+        pathname: '/wp-content/uploads/**',
+      },
       {
         protocol: 'https',
         hostname: 'images.prismic.io',

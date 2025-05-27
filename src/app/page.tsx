@@ -1,22 +1,42 @@
 import Image from "next/image";
 import LottieAnimation from "./components/radioLottie";
 import { createClient } from  './../prismicio'
+import NewsletterForm from "./components/NewsletterForm";
+import Link from "next/link";
+import { getPosts } from "./lib/wordpress";
+
+
+
 
 
 export const metadata = {
   title: 'SabiYou - Discover Your African Roots',
-  description: 'Discover, learn, and reconnect with your African roots through storytelling and cultural experiences.',
+  description:
+    'Reconnect with your African heritage through language, storytelling, and immersive cultural experiences. Join SabiYou and begin your journey of discovery.',
   openGraph: {
-    title: 'Contact Us',
-    description: 'Get in touch with us through our contact page.',
-    url: 'https://yourdomain.com/contact',
-    images: ['https://yourdomain.com/images/contact-preview.jpg'],
+    type: 'website',
+    locale: 'en_US',
+    site_name: 'SabiYou',
+    title: 'SabiYou - Discover Your African Roots',
+    description:
+      'Reconnect with your African heritage through language, storytelling, and immersive cultural experiences. Join SabiYou and begin your journey of discovery.',
+    url: 'https://sabiyou.com',
+    images: [
+      {
+        url: 'https://sabiyou.com/images/home-preview.jpg', // Replace with your actual image URL
+        width: 1200,
+        height: 630,
+        alt: 'SabiYou - African Storytelling and Culture',
+        type: 'image/jpeg',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Us',
-    description: 'Get in touch with us through our contact page.',
-    images: ['https://yourdomain.com/images/contact-preview.jpg'],
+    title: 'SabiYou - Discover Your African Roots',
+    description:
+      'Reconnect with your African heritage through language, storytelling, and immersive cultural experiences.',
+    images: ['https://sabiyou.com/images/home-preview.jpg'],
   },
 };
 
@@ -43,7 +63,27 @@ interface Group {
 
 }
 
+interface Post {
+  ID: number;
+  title: { rendered: string };
+  content: string;
+  excerpt: string;
+  slug: string;
+  featured_image: string;
+}
+
+
 export default async function Home() {
+
+  const response = await getPosts({ number: 3 })
+  const posts = response.posts
+
+  console.log(posts)
+  if (!posts || posts.length === 0) {
+    console.error('No posts found');
+
+  }
+
 
 
   const client = createClient()
@@ -52,15 +92,22 @@ export default async function Home() {
     featured_services: Service[]
   }
 
-  console.log(data)
+
 
 
   const testimonials = await client.getByTag("testimonial")
   const testimonial_data = testimonials.results[0].data as {
     group: Group[];
   }
-  console.log(testimonials)
 
+  const getTruncated = (html: string, maxChars = 150) => {
+    const text = html.replace(/<[^>]+>/g, ''); // remove tags
+    if (text.length <= maxChars) return text;
+    return text.slice(0, maxChars).trimEnd() + '…';
+  };
+
+
+  
   return (
     <>
       <section className="text-[#282829] font-[family-name:var(--font-lexend)] font-light lg:bg-transparent bg-no-repeat space-y-14 bg-bottom bg-cover xl:px-32 px-10 lg:py-48 pt-32">
@@ -203,36 +250,7 @@ export default async function Home() {
 
       <section className="font-[family-name:var(--font-lexend)] xl:mx-32 mx-10 lg:pb-32 py-10">
 
-        <div className="grid lg:grid-cols-2 justify-center shadow-2xl rounded-2xl border-1 border-zinc-400">
-
-          <div className="bg-[url('/images/1215.jpg')] bg-cover bg-center lg:rounded-bl-2xl lg:rounded-tl-2xl">
-
-          </div>
-
-          <div className=" text-[18px]/[34px] text-left tracking-tight rounded-5xl self-center lg:p-20 p-10">
-            <div className="flex flex-col gap-y-4 pb-6">
-
-              <h1 className="lg:text-3xl text-2xl font-[Raleway] tracking-tight font-bold">
-                Subscribe To Our Newsletter</h1>
-              <p>Join our community for the latest updates, special offers, and more
-                delivered straight to your inbox!</p>
-            </div>
-
-            <form action="" className="flex flex-col justify-start text-[#282829] md:text-[15px] text-[13px] gap-y-6">
-              <input type="email" name="" id="" placeholder="Enter Your Name"
-                className="w-full h-15 pl-4 lg:pl-10 rounded-3xl border-1 border-zinc-400" />
-              <input type="email" name="" id="" placeholder="Enter Your Email Address Here"
-                className="w-full h-15 pl-4 lg:pl-10 rounded-3xl border-1 border-zinc-400" />
-              <button type="submit" value="Hello"
-                className="bg-[#53007B] h-15 rounded-3xl text-white">
-                  Submit
-                
-              </button>
-            </form>
-          </div>
-
-        
-        </div>
+       <NewsletterForm />
 
 
 
@@ -245,75 +263,31 @@ export default async function Home() {
           Featured Stories
         </h1>
         <div className="flex flex-col lg:flex-row gap-y-6 gap-x-4">
-          <div className="border-1 border-zinc-400 flex flex-col space-y-10 justify-center gap-x-20 bg-[#f7c6ff]/20 shadow-lg rounded-2xl">
+          {posts && posts.map((post) => (
+            <div key={post.ID} className="border-1 border-zinc-400 flex flex-col space-y-10 justify-center gap-x-20 bg-[#f7c6ff]/20 shadow-lg rounded-2xl">
 
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/igbo_lost_tradition.jpeg" alt="Featured Story on SabiYou"
-              width={500} height={500} className="rounded-t-2xl w-full h-60 object-top object-cover" />
+            {post.featured_image && <Image src={post.featured_image} alt="Featured Story on SabiYou"
+              width={500} height={500} className="rounded-t-2xl w-full h-full object-top object-cover" />}
 
             <div className="flex flex-col gap-y-2 self-center px-6 pb-16">
-              <h2 className="text-xl text-[#282829]  tracking-tighter font-bold">The
-                Lost Traditions of The Igbo People</h2>
-              <p className=" text-[18px]/[30px]">Once celebrated with grand ceremonies, these traditions
-                are
-                now fading. What happened to them, and how can they be revived?</p>
+              <h2 className="text-xl text-[#282829] tracking-tighter font-bold" dangerouslySetInnerHTML={{__html: post.title }}/>
+  
+              <p className=" text-[18px]/[30px]">{getTruncated(post.excerpt, 150)}</p>
               <div className="mt-6">
-                <a href="#"
+                <Link href={`/blog/${post.slug}`}
                   className="px-6 py-3  font-medium border-2 border-transparent hover:border-[#53007B] bg-[#53007B] hover:bg-transparent
                              text-white hover:text-[#53007B] rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#53007B] focus:ring-offset-2 transition duration-300 ease-in-out">
                   Read More
-                </a>
+                </Link>
 
               </div>
 
             </div>
           </div>
 
-          <div className="border-1 border-zinc-400 flex flex-col space-y-10 justify-center gap-x-20 bg-[#f7c6ff]/20 shadow-lg rounded-2xl">
+          ))}
+          
 
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/igbo_lost_tradition.jpeg" alt="Featured Story on SabiYou"
-              width={500} height={500} className="rounded-t-2xl w-full h-60 object-top object-cover" />
-
-            <div className="flex flex-col gap-y-2 self-center px-6 pb-16">
-              <h2 className="text-xl text-[#282829]  tracking-tighter font-bold">The
-                Lost Traditions of The Igbo People</h2>
-              <p className=" text-[18px]/[30px]">Once celebrated with grand ceremonies, these traditions
-                are now fading. What happened to them, and how can they be revived?</p>
-              <div className="mt-6">
-                <a href="#"
-                  className="px-6 py-3  font-medium border-2 border-transparent hover:border-[#53007B] bg-[#53007B] hover:bg-transparent
-                         text-white hover:text-[#53007B] rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#53007B] focus:ring-offset-2 transition duration-300 ease-in-out">
-                  Read More
-                </a>
-
-              </div>
-
-            </div>
-          </div>
-
-          <div className="border-1 border-zinc-400 flex flex-col space-y-10 justify-center gap-x-20 bg-[#f7c6ff]/20 shadow-lg rounded-2xl">
-
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/igbo_lost_tradition.jpeg" alt="Featured Story on SabiYou"
-              width={500} height={500} className="rounded-t-2xl w-full h-60 object-top object-cover" />
-
-            <div className="flex flex-col gap-y-2 self-center px-6 pb-16">
-              <h2 className="text-xl text-[#282829]  tracking-tighter font-bold">The
-                Lost
-                Traditions
-                of The Igbo People</h2>
-              <p className=" text-[18px]/[30px]">Once celebrated with grand ceremonies, these traditions
-                are
-                now fading. What happened to them, and how can they be revived?</p>
-              <div className="mt-6">
-                <a href="#"
-                  className="px-6 py-3  font-medium border-2 border-transparent hover:border-[#53007B] bg-[#53007B] hover:bg-transparent
-                     text-white hover:text-[#53007B] rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#53007B] focus:ring-offset-2 transition duration-300 ease-in-out">
-                  Read More
-                </a>
-
-              </div>
-
-            </div>
-          </div>
 
 
         </div>

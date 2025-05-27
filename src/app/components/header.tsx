@@ -15,7 +15,7 @@ export default function Header() {
                 <ul className="lg:flex gap-x-4 hidden place-items-center place-self-end">
                     <li className="py-2 px-4 rounded-lg hover:text-[#53007B]"><Link href="/">Home</Link></li>
                     <li className="py-2 px-4 rounded-lg hover:text-[#53007B]"><Link href="/about">About</Link></li>
-                    <li className="py-2 px-4 rounded-lg hover:text-[#53007B]">Blog</li>
+                    <li className="py-2 px-4 rounded-lg hover:text-[#53007B]"><Link href="/blog">Blog</Link></li>
                     <li><Link href="/contact" className="px-6 py-3 font-medium border-2 border-transparent hover:border-[#53007B] hover:bg-transparent bg-[#53007B] hover:text-[#53007B] text-white rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#53007B] focus:ring-offset-2 transition duration-300 ease-in-out">Contact Us</Link></li>
                 </ul>
 
