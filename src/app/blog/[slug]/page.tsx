@@ -50,6 +50,8 @@ export default async function PostPage({ params }: PageProps) {
             </>
         );
     } catch (error) {
+        
+        console.error("Error fetching post:", error);
         notFound();
     }
-}
+}   

@@ -2,15 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { getPosts } from "../lib/wordpress";
 
-interface Post {
-  ID: number;
-  title: { rendered: string };
-  content: string;
-  excerpt: string;
-  slug: string;
-  featured_image: string;
-}
-
 
 
 export default async function Blog() {
