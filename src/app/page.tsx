@@ -71,7 +71,6 @@ export default async function Home() {
   const response = await getPosts({ number: 3 })
   const posts = response.posts
 
-  console.log(posts)
   if (!posts || posts.length === 0) {
     console.error('No posts found');
 

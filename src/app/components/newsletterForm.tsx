@@ -6,13 +6,13 @@ import PopUp from "./popup"
 import Form from "next/form"
 
 export default function NewsletterForm() {
-  const [email, setEmail] = useState('')
-  const [fname, setFname] = useState('')
+  const [email, setEmail] = useState<string>('')
+  const [fname, setFname] = useState<string>('')
   const [message, setMessage] = useState('')
-  const [popupheader, setPopupheader] = useState('')
-  const [popupicon, setPopupicon] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [showModal, setShowModal] = useState(false)
+  const [popupheader, setPopupheader] = useState<string>('')
+  const [popupicon, setPopupicon] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [showModal, setShowModal] = useState<boolean>(false)
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -22,7 +22,7 @@ export default function NewsletterForm() {
     try {
       const response = await axios.post("/api/subscribe", { email, fname })
       console.log("Success:", response.data)
-      setPopupicon('/images/accept.svg')
+      setPopupicon(true)
       setPopupheader('Thank You For Subscribing!')
       setMessage("Successfully Subscribed")
       setShowModal(true)
@@ -30,7 +30,7 @@ export default function NewsletterForm() {
       setFname('')
     } catch (error) {
       console.error("Error subscribing:", error)
-      setPopupicon('/images/error.png')
+      setPopupicon(false)
       setMessage("There was an error. Please try again.")
       setPopupheader('Subscription Failed')
       setShowModal(true)
@@ -38,6 +38,8 @@ export default function NewsletterForm() {
       setLoading(false)
     }
   }
+
+  console.log(popupicon)
 
   return (
     <>
@@ -92,6 +94,8 @@ export default function NewsletterForm() {
       modalMessage={message} 
       popupheader={popupheader}
       popupicon={popupicon} />
+
+      
     </>
   )
 }

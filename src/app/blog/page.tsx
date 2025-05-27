@@ -10,7 +10,6 @@ export default async function Blog() {
     const response = await getPosts({ number: 100 })
     const posts = response.posts
 
-    console.log(posts)
 
 
 
