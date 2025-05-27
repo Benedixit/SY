@@ -1,7 +1,7 @@
 import Image from "next/image";
 import LottieAnimation from "./components/radioLottie";
 import { createClient } from  './../prismicio'
-import NewsletterForm from "./components/NewsletterForm";
+import NewsletterForm from "./components/newsletterForm";
 import Link from "next/link";
 import { getPosts } from "./lib/wordpress";
 

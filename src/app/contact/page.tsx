@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GoogleMap from "../components/GoogleMap";
+import GoogleMap from "../components/googleMap"
 import ContactForm from "../components/contactForm";
 
 export const metadata = {
