@@ -4,16 +4,16 @@ import { useState, FormEvent } from 'react';
 import PopUp from './popup';
 
 export default function ContactForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [subject, setSubject] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   // popup state
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [popupData, setPopupData] = useState<{ header: string; message: string; icon: string; }>({
-    icon: '/images/accept.png',
+  const [popupData, setPopupData] = useState<{ header: string; message: string; icon: boolean; }>({
+    icon: true,
     header: '',
     message: '',
   });
@@ -41,7 +41,7 @@ export default function ContactForm() {
       setMessage('');
 
       setPopupData({
-        icon: '/images/accept.svg',
+        icon: true,
         header: 'Message Sent!',
         message: 'Thank you for reaching out. We will get back to you soon.',
       });
@@ -49,7 +49,7 @@ export default function ContactForm() {
     } catch (err) {
       setStatus('error');
       setPopupData({
-        icon: '/images/error.png',
+        icon: false,
         header: 'Error!',
         message: 'Something went wrong. Please try again.',
       });

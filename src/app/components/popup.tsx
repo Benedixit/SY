@@ -3,12 +3,13 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import CheckLottie from "./checkLottie";
 
 type ModalProps = {
   isOpen: boolean;
   modalMessage?: string;
   popupheader?: string;
-  popupicon: string;
+  popupicon: boolean;
   onClose: () => void;
   title?: string;
   children?: React.ReactNode;
@@ -47,19 +48,14 @@ const PopUp = ({ isOpen, onClose, modalMessage, popupheader, popupicon }: ModalP
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-4 right-4 text-[#53007B] hover:text-red-500 text-2xl font-bold focus:outline-none"
+          className="absolute top-4 right-4 text-[#53007B] text-2xl font-bold focus:outline-none"
         >
           <Image src="/images/close.svg" alt="Close Icon" width={24} height={24} className="w-12" />
         </button>
 
-        <Image
-          src={popupicon}
-          alt="Accept Icon"
-          className="lg:w-34 w-24 mx-auto"
-          width={400}
-          height={400}
-          priority
-        />
+        {popupicon == true ? <Image src="/images/accept.svg" alt="Subscription Accepted" width={500} 
+        height={500} className="w-20 lg:w-34" />: <Image src="/images/error.png" alt="Subscription Error" width={500} 
+        height={500} className="w-20 lg:w-34 mx-auto self-center" />}
         <h1 className="xl:text-5xl text-3xl font-[family-name:var(--font-raleway)] font-bold tracking-tighter">
           {popupheader || null}
         </h1>

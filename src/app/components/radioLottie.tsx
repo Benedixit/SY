@@ -1,7 +1,7 @@
 "use client"
 
 import dynamic from 'next/dynamic';
-import animationData from './lotties/radio_3.json';
+import animationData from './lotties/podcast.json';
 
 const DynamicLottie = dynamic(() => import('react-lottie'), { ssr: false });
 
