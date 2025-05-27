@@ -63,14 +63,7 @@ interface Group {
 
 }
 
-interface Post {
-  ID: number;
-  title: { rendered: string };
-  content: string;
-  excerpt: string;
-  slug: string;
-  featured_image: string;
-}
+
 
 
 export default async function Home() {

@@ -46,7 +46,7 @@ export default function ContactForm() {
         message: 'Thank you for reaching out. We will get back to you soon.',
       });
       setIsPopupOpen(true);
-    } catch (err: any) {
+    } catch (err) {
       setStatus('error');
       setPopupData({
         icon: '/images/error.png',
@@ -54,6 +54,7 @@ export default function ContactForm() {
         message: 'Something went wrong. Please try again.',
       });
       setIsPopupOpen(true);
+      console.error('Error sending message:', err);
     }
   };
 

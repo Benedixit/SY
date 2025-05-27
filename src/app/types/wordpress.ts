@@ -12,8 +12,6 @@ export interface WordPressPost {
     email: string;
   };
   featured_image?: string;
-  tags: Record<string, any>;
-  categories: Record<string, any>;
   status: string;
   URL: string;
 }
