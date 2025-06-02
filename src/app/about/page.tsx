@@ -1,7 +1,6 @@
 import Image from "next/image"
 import { createClient } from '../../prismicio'
 import { PrismicDocument } from '@prismicio/types'
-import { PrismicRichText } from '@prismicio/react'
 
 export const metadata = {
   title: 'About SabiYou - Our Mission, Vision & Team',
