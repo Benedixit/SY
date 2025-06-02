@@ -5,7 +5,7 @@ export default function Footer() {
     <footer
     className="border-t-1 border-zinc-400 font-[family-name:var(--font-lexend)] font-light lg:p-32 py-24 px-10 tracking-tight bg-[#f7c6ff]/30 flex flex-col lg:flex-row text-[#282829] gap-x-48 gap-y-10 justify-center">
     <div className="space-y-6">
-        <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/sabiyou_logo.png" alt="Sabiyou Logo" width={150} height={150} className="lg:w-20 w-14" />
+        <Image src="/images/sabiyou_logo.png" alt="Sabiyou Logo" width={150} height={150} className="lg:w-20 w-14" />
         <p className="text-[18px] leading-loose">Embracing Culture <br /> Reconnecting Roots.</p>
     </div>
 

@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'images.prismic.io',
         port: '',
-        pathname: '/benedixit/**',
+        pathname: '/sabiyou/**',
       },
     ],
   },

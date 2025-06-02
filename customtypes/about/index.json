@@ -13,11 +13,41 @@
           "placeholder": ""
         }
       },
+      "mission_text": {
+        "type": "Text",
+        "config": {
+          "label": "Mission Text",
+          "placeholder": ""
+        }
+      },
+      "mission_image": {
+        "type": "Image",
+        "config": {
+          "label": "Mission Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "vision_headline": {
         "type": "Text",
         "config": {
-          "label": "Story Headline",
+          "label": "Vision Headline",
           "placeholder": ""
+        }
+      },
+      "vision_text": {
+        "type": "Text",
+        "config": {
+          "label": "Vision Text",
+          "placeholder": ""
+        }
+      },
+      "story_img": {
+        "type": "Image",
+        "config": {
+          "label": "Story Image",
+          "constraint": {},
+          "thumbnails": []
         }
       },
       "team": {
@@ -26,14 +56,6 @@
           "label": "Team",
           "repeat": true,
           "fields": {
-            "profile_pic": {
-              "type": "Image",
-              "config": {
-                "label": "profile pic",
-                "constraint": {},
-                "thumbnails": []
-              }
-            },
             "name": {
               "type": "Text",
               "config": {
@@ -47,38 +69,16 @@
                 "label": "Role",
                 "placeholder": ""
               }
+            },
+            "profile_pic": {
+              "type": "Image",
+              "config": {
+                "label": "Profile Pic",
+                "constraint": {},
+                "thumbnails": []
+              }
             }
           }
-        }
-      },
-      "mission_image": {
-        "type": "Image",
-        "config": {
-          "label": "Mission Image",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
-      "story_img": {
-        "type": "Image",
-        "config": {
-          "label": "Story Image",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
-      "vision_text": {
-        "type": "Text",
-        "config": {
-          "label": "vision_text",
-          "placeholder": ""
-        }
-      },
-      "mission_text": {
-        "type": "Text",
-        "config": {
-          "label": "Mission Text",
-          "placeholder": ""
         }
       }
     }

@@ -57,7 +57,7 @@ export default async function Page() {
 
     const client = createClient()
     const pages = await client.getByTag("about")
-    const data = pages?.results[0]?.data as {
+    const data = (pages?.results[0]?.data as unknown) as {
         mission_headline: string;
         mission_text: PrismicDocument['data']['mission_text'];
         vision_headline: string;
@@ -66,6 +66,13 @@ export default async function Page() {
         team: TeamMember[];
     }
 
+    if (!data) {
+        return <div className="text-center text-lg font-light">Loading...</div>
+    }
+
+    console.log(data)
+
+    
 
     return (
         <>
@@ -86,15 +93,14 @@ export default async function Page() {
                 className="text-[#282829] space-y-16 py-16 font-[family-name:var(--font-lexend)]  font-light text-[18px] leading-relaxed px-10 xl:px-32">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div className="bg-[url('/images/mission_2.jpg')] bg-cover bg-center flex rounded-2xl">
-                        <div
-                            className="space-y-4 bg-[#FDF4FF] bg-blend-multiply lg:m-6 m-2 p-10 rounded-2xl border-1 border-zinc-400 shadow-lg self-end">
+                        <div className="space-y-4 bg-[#FDF4FF] bg-blend-multiply lg:m-6 m-2 p-10 rounded-2xl border-1 border-zinc-400 shadow-lg self-end">
 
                             <h2 className="text-sm uppercase tracking-wide text-[#53007B]">Our mission</h2>
                             <h1 className="text-2xl font-[family-name:var(--font-raleway)] font-bold tracking-tight">{data?.mission_headline}</h1>
-                            <div className="text-[18px] leading-loose"><PrismicRichText field={data?.mission_text} />
+                            <p className="text-[18px] leading-loose">{data?.mission_text} </p>
                             </div>
-                        </div>
                     </div>
+                    
                     <div className="text-[#282829] flex flex-col gap-y-6">
 
                         <Image src={data?.story_img?.url} alt="About Sabiyou" height={500} width={500} className="h-[300px] w-full object-cover object-top rounded-2xl" />
@@ -103,12 +109,12 @@ export default async function Page() {
                         <div className="space-y-4 bg-[#f7c6ff]/20 p-10 border-1 border-zinc-400 rounded-2xl self-end shadow-lg">
                             <h2 className="text-sm uppercase tracking-wide">Our story</h2>
                             <h1 className="text-2xl font-[family-name:var(--font-raleway)] font-bold tracking-tight">{data?.vision_headline}</h1>
-                            <div className="leading-loose"><PrismicRichText field={data?.vision_text} />
-                            </div>
+                            <p className="leading-loose">{data?.vision_text}</p>
                         </div>
+                       
                     </div>
-
                 </div>
+               
 
 
 
@@ -123,8 +129,8 @@ export default async function Page() {
             <section className="py-16 xl:px-32 px-10 space-y-10 text-[#282829] font-[family-name:var(--font-lexend)]">
                 <h1 className="font-[family-name:var(--font-raleway)] font-bold text-4xl tracking-tight">Meet Our Team</h1>
                 <p className="font-[family-name:var(--font-lexend)] font-light text-[18px] leading-loose w-full lg:w-1/2 md:w-2/3">We are a group of passionate creators, thinkers, and doers—each bringing unique skills and perspectives to the table. Together, we collaborate, innovate, and push boundaries to turn ideas into impact.</p>
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10">
-                    {data.team.map((member: TeamMember) => {
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
+                    {data.team?.map((member: TeamMember) => {
 
                         return (
                             <div key={member.name} className="relative w-full h-[300px] overflow-hidden border-1 border-zinc-400 rounded-2xl shadow-lg group">
@@ -133,7 +139,7 @@ export default async function Page() {
                                     className="absolute inset-0 w-full h-[300px] object-cover z-0 rounded-2xl" />
 
                                 <div className="absolute inset-0 z-10 flex items-end justify-center pb-4 px-10">
-                                    <div className="bg-[#FDF4FF] border-1 border-zinc-400 shadow-lg space-y-1 w-full p-4 text-center rounded-2xl flex flex-col justify-center">
+                                    <div className="bg-[#FDF4FF] border-1 border-zinc-400 shadow-lg space-y-1 w-full p-2 text-center rounded-2xl flex flex-col justify-center">
                                         <h6 className="text-lg font-bold tracking-tighter">{member.name}</h6>
                                         <p className="text-sm font-light tracking-tight opacity-70">{member.role}</p>
                                     </div>

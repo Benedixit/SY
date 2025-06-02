@@ -9,16 +9,6 @@ type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
  */
 export interface AboutDocumentDataTeamItem {
   /**
-   * profile pic field in *About → Team*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.team[].profile_pic
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  profile_pic: prismic.ImageField<never>;
-
-  /**
    * Name field in *About → Team*
    *
    * - **Field Type**: Text
@@ -37,6 +27,16 @@ export interface AboutDocumentDataTeamItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   role: prismic.KeyTextField;
+
+  /**
+   * Profile Pic field in *About → Team*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.team[].profile_pic
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  profile_pic: prismic.ImageField<never>;
 }
 
 /**
@@ -55,26 +55,15 @@ interface AboutDocumentData {
   mission_headline: prismic.KeyTextField;
 
   /**
-   * Story Headline field in *About*
+   * Mission Text field in *About*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: about.vision_headline
+   * - **API ID Path**: about.mission_text
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  vision_headline: prismic.KeyTextField;
-
-  /**
-   * Team field in *About*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.team[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  team: prismic.GroupField<Simplify<AboutDocumentDataTeamItem>>;
+  mission_text: prismic.KeyTextField;
 
   /**
    * Mission Image field in *About*
@@ -88,6 +77,28 @@ interface AboutDocumentData {
   mission_image: prismic.ImageField<never>;
 
   /**
+   * Vision Headline field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.vision_headline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  vision_headline: prismic.KeyTextField;
+
+  /**
+   * Vision Text field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.vision_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  vision_text: prismic.KeyTextField;
+
+  /**
    * Story Image field in *About*
    *
    * - **Field Type**: Image
@@ -99,26 +110,15 @@ interface AboutDocumentData {
   story_img: prismic.ImageField<never>;
 
   /**
-   * vision_text field in *About*
+   * Team field in *About*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: about.vision_text
+   * - **API ID Path**: about.team[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  vision_text: prismic.KeyTextField;
-
-  /**
-   * Mission Text field in *About*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.mission_text
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  mission_text: prismic.KeyTextField;
+  team: prismic.GroupField<Simplify<AboutDocumentDataTeamItem>>;
 }
 
 /**
@@ -253,11 +253,11 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 /**
- * Item in *Homepage → Featured Services*
+ * Item in *Home → Featured Services*
  */
 export interface HomepageDocumentDataFeaturedServicesItem {
   /**
-   * Label field in *Homepage → Featured Services*
+   * Label field in *Home → Featured Services*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -267,7 +267,7 @@ export interface HomepageDocumentDataFeaturedServicesItem {
   label: prismic.KeyTextField;
 
   /**
-   * text field in *Homepage → Featured Services*
+   * text field in *Home → Featured Services*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -277,7 +277,7 @@ export interface HomepageDocumentDataFeaturedServicesItem {
   text: prismic.KeyTextField;
 
   /**
-   * Link field in *Homepage → Featured Services*
+   * Link field in *Home → Featured Services*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -288,11 +288,21 @@ export interface HomepageDocumentDataFeaturedServicesItem {
 }
 
 /**
- * Item in *Homepage → Testimonial*
+ * Item in *Home → Testimonial*
  */
 export interface HomepageDocumentDataTestimonialItem {
   /**
-   * Country Flag field in *Homepage → Testimonial*
+   * Avatar field in *Home → Testimonial*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.testimonial[].avatar
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  avatar: prismic.ImageField<never>;
+
+  /**
+   * Country Flag field in *Home → Testimonial*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -302,7 +312,7 @@ export interface HomepageDocumentDataTestimonialItem {
   country_flag: prismic.ImageField<never>;
 
   /**
-   * Customer Name field in *Homepage → Testimonial*
+   * Customer Name field in *Home → Testimonial*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -312,32 +322,32 @@ export interface HomepageDocumentDataTestimonialItem {
   customer_name: prismic.KeyTextField;
 
   /**
-   * Customer Text field in *Homepage → Testimonial*
+   * Customer Review field in *Home → Testimonial*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.testimonial[].customer_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **API ID Path**: homepage.testimonial[].customer_review
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  customer_text: prismic.RichTextField;
+  customer_review: prismic.KeyTextField;
 
   /**
-   * customer pic field in *Homepage → Testimonial*
+   * Customer Location field in *Home → Testimonial*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.testimonial[].customer_pic
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **API ID Path**: homepage.testimonial[].customer_location
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  customer_pic: prismic.ImageField<never>;
+  customer_location: prismic.KeyTextField;
 }
 
 /**
- * Content for Homepage documents
+ * Content for Home documents
  */
 interface HomepageDocumentData {
   /**
-   * Hero Headline field in *Homepage*
+   * Hero Headline field in *Home*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -348,7 +358,7 @@ interface HomepageDocumentData {
   headline: prismic.KeyTextField;
 
   /**
-   * Hero Text field in *Homepage*
+   * Hero Text field in *Home*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -359,7 +369,7 @@ interface HomepageDocumentData {
   hero_text: prismic.RichTextField;
 
   /**
-   * Featured Services field in *Homepage*
+   * Featured Services field in *Home*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -372,20 +382,7 @@ interface HomepageDocumentData {
   >;
 
   /**
-   * Testimonial field in *Homepage*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.testimonial[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  testimonial: prismic.GroupField<
-    Simplify<HomepageDocumentDataTestimonialItem>
-  >;
-
-  /**
-   * Newsletter Headline field in *Homepage*
+   * Newsletter Headline field in *Home*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -396,7 +393,7 @@ interface HomepageDocumentData {
   newsletter_headline: prismic.KeyTextField;
 
   /**
-   * Newsletter Text field in *Homepage*
+   * Newsletter Text field in *Home*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -407,18 +404,18 @@ interface HomepageDocumentData {
   newsletter_text: prismic.RichTextField;
 
   /**
-   * Radio Headline field in *Homepage*
+   * Radio Headline field in *Home*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: homepage.radio_headline
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  radio_headline: prismic.ImageField<never>;
+  radio_headline: prismic.KeyTextField;
 
   /**
-   * Radio Text field in *Homepage*
+   * Radio Text field in *Home*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -427,10 +424,40 @@ interface HomepageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   radio_text: prismic.KeyTextField;
+
+  /**
+   * Radio Link field in *Home*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.radio_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  radio_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Testimonial field in *Home*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.testimonial[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  testimonial: prismic.GroupField<
+    Simplify<HomepageDocumentDataTestimonialItem>
+  >;
 }
 
 /**
- * Homepage document from Prismic
+ * Home document from Prismic
  *
  * - **API ID**: `homepage`
  * - **Repeatable**: `false`
@@ -595,241 +622,11 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-/**
- * Item in *testimonial → group*
- */
-export interface TestimonialDocumentDataGroupItem {
-  /**
-   * avatar field in *testimonial → group*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: testimonial.group[].avatar
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  avatar: prismic.ImageField<never>;
-
-  /**
-   * text field in *testimonial → group*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: testimonial.group[].text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  text: prismic.KeyTextField;
-
-  /**
-   * country_flag field in *testimonial → group*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: testimonial.group[].country_flag
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  country_flag: prismic.ImageField<never>;
-}
-
-/**
- * Content for testimonial documents
- */
-interface TestimonialDocumentData {
-  /**
-   * group field in *testimonial*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: testimonial.group[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  group: prismic.GroupField<Simplify<TestimonialDocumentDataGroupItem>>;
-}
-
-/**
- * testimonial document from Prismic
- *
- * - **API ID**: `testimonial`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type TestimonialDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<TestimonialDocumentData>,
-    "testimonial",
-    Lang
-  >;
-
 export type AllDocumentTypes =
   | AboutDocument
   | FooterDocument
   | HomepageDocument
-  | SettingsDocument
-  | TestimonialDocument;
-
-/**
- * Primary content in *Hero → Default → Primary*
- */
-export interface HeroSliceDefaultPrimary {
-  /**
-   * eyebrowHeadline field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Eyebrow
-   * - **API ID Path**: hero.default.primary.eyebrowHeadline
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  eyebrowHeadline: prismic.KeyTextField;
-
-  /**
-   * title field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * description field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * image field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * callToActionLink field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.callToActionLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  callToActionLink: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-}
-
-/**
- * Default variation for Hero Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeroSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<HeroSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Primary content in *Hero → Image Right → Primary*
- */
-export interface HeroSliceImageRightPrimary {
-  /**
-   * eyebrowHeadline field in *Hero → Image Right → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Eyebrow
-   * - **API ID Path**: hero.imageRight.primary.eyebrowHeadline
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  eyebrowHeadline: prismic.KeyTextField;
-
-  /**
-   * title field in *Hero → Image Right → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.imageRight.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * description field in *Hero → Image Right → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.imageRight.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * image field in *Hero → Image Right → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.imageRight.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * callToActionLink field in *Hero → Image Right → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.imageRight.primary.callToActionLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  callToActionLink: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-}
-
-/**
- * Image Right variation for Hero Slice
- *
- * - **API ID**: `imageRight`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeroSliceImageRight = prismic.SharedSliceVariation<
-  "imageRight",
-  Simplify<HeroSliceImageRightPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Hero*
- */
-type HeroSliceVariation = HeroSliceDefault | HeroSliceImageRight;
-
-/**
- * Hero Shared Slice
- *
- * - **API ID**: `hero`
- * - **Description**: Hero
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+  | SettingsDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -867,16 +664,7 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataSocialLinksItem,
       SettingsDocumentDataNavigationItem,
-      TestimonialDocument,
-      TestimonialDocumentData,
-      TestimonialDocumentDataGroupItem,
       AllDocumentTypes,
-      HeroSlice,
-      HeroSliceDefaultPrimary,
-      HeroSliceImageRightPrimary,
-      HeroSliceVariation,
-      HeroSliceDefault,
-      HeroSliceImageRight,
     };
   }
 }

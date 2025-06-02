@@ -4,6 +4,7 @@ import { createClient } from  './../prismicio'
 import NewsletterForm from "./components/newsletterForm";
 import Link from "next/link";
 import { getPosts } from "./lib/wordpress";
+import TestimonialCarousel from "./components/testimonial";
 
 
 
@@ -55,12 +56,12 @@ interface GroupImage {
 }
 
 
-interface Group {
+interface Testimonial {
   avatar: GroupImage;
   country_flag: GroupImage;
-  text: string
-
-
+  customer_review: string;
+  customer_name: string;
+  customer_location: string;
 }
 
 
@@ -81,16 +82,11 @@ export default async function Home() {
   const client = createClient()
   const pages = await client.getByTag("home")
   const data = pages?.results[0]?.data as {
-    featured_services: Service[]
+    featured_services: Service[],
+    testimonial: Testimonial[]
   }
 
-
-
-
-  const testimonials = await client.getByTag("testimonial")
-  const testimonial_data = testimonials.results[0].data as {
-    group: Group[];
-  }
+  console.log(data)
 
   const getTruncated = (html: string, maxChars = 150) => {
     const text = html.replace(/<[^>]+>/g, ''); // remove tags
@@ -207,27 +203,7 @@ export default async function Home() {
           Testimonials From Customers</h1>
 
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 content-center gap-y-6 gap-x-4 pt-10">
-
-          {testimonial_data.group.map((item: Group, index: number) => {
-            return (
-            <div key={index} className="border-1 border-zinc-400 flex flex-col gap-y-4 bg-[#f7c6ff]/20 rounded-2xl shadow-lg p-7">
-              <Image src={item.country_flag.url} alt="Sabiyou Testimonial From Customer" width={500} height={500} className="w-18 py-4" />
-              <p>{item.text}</p>
-  
-              <div className="flex gap-x-2 content-center pt-6">
-                <Image src={item.avatar.url} alt="Sabiyou's Customer Photo" width={500} height={500} className="w-16 h-16 object-fill rounded-full" />
-                <p className="font-bold self-center">Jeffrey Okechukwu</p>
-              </div>
-            </div>)
-             
-
-          })}
-
-         
-
-
-        </div>
+        <TestimonialCarousel testimonials={data?.testimonial} />
      
 
 
