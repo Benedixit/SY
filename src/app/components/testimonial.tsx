@@ -39,7 +39,7 @@ export default function TestimonialCarousel({ testimonials }: { testimonials: Te
             <SwiperSlide key={index}>
               <div className="border border-zinc-400 flex flex-col gap-y-4 bg-[#f7c6ff]/20 rounded-2xl shadow-lg p-7 h-full">
                 
-                <p>{item.customer_review}</p>
+                <p className="font-light">{item.customer_review}</p>
                 <div className="flex items-center gap-4">
                   <Image src={item.avatar.url} alt={item.avatar.alt} width={50} height={50} className="rounded-full" />
                   <div>

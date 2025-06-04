@@ -86,7 +86,6 @@ export default async function Home() {
     testimonial: Testimonial[]
   }
 
-  console.log(data)
 
   const getTruncated = (html: string, maxChars = 150) => {
     const text = html.replace(/<[^>]+>/g, ''); // remove tags
@@ -102,9 +101,9 @@ export default async function Home() {
         <div className="flex flex-col justify-center gap-6">
           <h1
             className="lg:text-7xl/[80px] md:text-6xl/[70px] text-[#282829] text-left md:text-center font-[family-name:var(--font-raleway)] tracking-tighter text-4xl/[50px] font-bold">
-            Discover, Learn & Reconnect <br className="lg:block hidden" /> with Your <span className="text-[#53007B]"> African
+            Discover, Learn & Reconnect <br className="lg:block hidden" /> with Your <span className="text-[#53007B]">
               Roots</span></h1>
-          <p className="text-left md:text-center text-[18px]/[30px]">Learn, Listen & Engage with Nigerian Culture through
+          <p className="text-left md:text-center text-[18px]/[30px]">Learn, Listen & Engage with Culture through
             storytelling, <br className="md:block hidden" /> live discussions, and cultural experiences</p>
           <div className=" flex md:justify-center justify-start gap-x-4">
             <a href="#"
@@ -122,13 +121,13 @@ export default async function Home() {
 
         <div className="md:flex justify-center mt-12 gap-0 m-0 hidden">
           <div className="rounded-full w-48 h-48 m-0 flex justify-center">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/hero_2.jpeg" alt="Sabi You - App For Learning Languages" width={500} height={500} className="h-40 w-40 rounded-full object-cover object-center" />
+            <Image src="/images/viking_culture.jpg" alt="Sabi You - App For Learning Languages" width={500} height={500} className="h-40 w-40 rounded-full object-cover object-center" />
           </div>
           <div className="rounded-full w-68 h-68 m-0 flex justify-center">
             <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/hero_1.jpeg" alt="Sabi You - App For Learning Languages" width={500} height={500} className="h-64 w-64 rounded-full object-cover object-top" />
           </div>
           <div className="rounded-full w-48 h-48 m-0 flex justify-center">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/hero_3.jpeg" alt="Sabi You - App For Learning Languages" width={500} height={500} className="h-40 w-40 rounded-full object-cover object-center" />
+            <Image src="/images/chinese.jpg" alt="Sabi You - App For Learning Languages" width={500} height={500} className="h-40 w-40 rounded-full object-cover object-center" />
           </div>
         </div>
 
