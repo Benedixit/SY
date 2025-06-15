@@ -162,8 +162,8 @@ export default async function Page() {
                         <div className="flex flex-col gap-y-4 pb-6">
 
                             <h1 className="lg:text-4xl leading-normal text-3xl font-[family-name:var(--font-raleway)] tracking-tighter font-bold">
-                                Tune To SabiYou Radio</h1>
-                            <p className="leading-loose text-[18px]">Immerse yourself in the heart of our culture with SabiYou Radio. Tune in and discover captivating stories, music, and conversations that celebrate our rich heritage.</p>
+                                Tune To SabiYou Podcast</h1>
+                            <p className="leading-loose text-[18px]">Immerse yourself in the heart of our culture with SabiYou Podcast. Tune in and discover captivating stories, music, and conversations that celebrate our rich heritage.</p>
                             <div className="pt-4">
                                 <a href="#" className="px-6 py-3 font-medium border-2 border-transparent hover:border-[#53007B] bg-[#53007B] hover:bg-transparent text-white hover:text-[#53007B] rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#53007B] focus:ring-offset-2 transition duration-300 ease-in-out">
                                     Start Listening

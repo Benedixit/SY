@@ -97,7 +97,7 @@ export default async function Home() {
   
   return (
     <>
-      <section className="text-[#282829] font-[family-name:var(--font-lexend)] font-light lg:bg-transparent bg-no-repeat space-y-14 bg-bottom bg-cover xl:px-32 px-10 lg:py-48 pt-32">
+      <section className="text-[#282829] font-[family-name:var(--font-lexend)] font-light lg:bg-transparent bg-no-repeat space-y-14 bg-bottom bg-cover xl:px-32 px-4 sm:px-10 lg:py-48 pt-32">
         <div className="flex flex-col justify-center gap-6">
           <h1
             className="lg:text-7xl/[80px] md:text-6xl/[70px] text-[#282829] text-left md:text-center font-[family-name:var(--font-raleway)] tracking-tighter text-4xl/[50px] font-bold">
@@ -105,15 +105,15 @@ export default async function Home() {
               Roots</span></h1>
           <p className="text-left md:text-center text-[18px]/[30px]">Learn, Listen & Engage with Culture through
             storytelling, <br className="md:block hidden" /> live discussions, and cultural experiences</p>
-          <div className=" flex md:justify-center justify-start gap-x-4">
-            <a href="#"
-              className="px-6 py-3  font-medium border-1 border-transparent hover:border-[#53007B] hover:bg-transparent bg-[#53007B] hover:text-[#53007B] text-white rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#53007B] focus:ring-offset-2 transition duration-300 ease-in-out">
+          <div className=" flex md:justify-center justify-start gap-x-1 sm:gap-x-4">
+            <Link href="/blog"
+              className="p-3 sm:px-6 text-[14px] sm:text-[18px] font-medium border-1 border-transparent hover:border-[#53007B] hover:bg-transparent bg-[#53007B] hover:text-[#53007B] text-white rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#53007B] focus:ring-offset-2 transition duration-300 ease-in-out">
               Read Stories 
-            </a>
-            <a href="#"
-              className="px-6 py-3  font-medium border-1 border-[#53007B] hover:bg-[#53007B] hover:text-white text-[#53007B] rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#53007B] focus:ring-offset-2 transition duration-300 ease-in-out">
-              Sabiyou Radio
-            </a>
+            </Link>
+            <Link href="/podcast"
+              className="p-3 sm:px-6 text-[14px] sm:text-[18px] font-medium border-1 border-[#53007B] hover:bg-[#53007B] hover:text-white text-[#53007B] rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#53007B] focus:ring-offset-2 transition duration-300 ease-in-out">
+              Sabiyou Podcast
+            </Link>
 
           </div>
 
@@ -138,11 +138,11 @@ export default async function Home() {
 
 
 
-      <section className="font-[family-name:var(--font-lexend)] lg:mt-[-10%] mt-16 lg:py-32 py-10 px-10 xl:px-32">
+      <section className="font-[family-name:var(--font-lexend)] lg:mt-[-10%] mt-16 lg:py-32 p-4 sm:px-10 xl:px-32">
         <div className="pb-16 space-y-4">
         <h1 className="lg:text-5xl/[70px] text-3xl text-[#282829] text-left font-[Raleway] tracking-tighter font-bold">
           What Make SabiYou Unique?</h1>
-          <p className="text-[18px]/[34px] w-full lg:w-1/2">Sabiyou stands out as a platform designed not just for learning, but for connection. ith Sabiyou, learning a new culture feels natural, purposeful, and personal.</p>
+          <p className="text-[18px]/[34px] w-full lg:w-1/2">Sabiyou stands out as a platform designed not just for learning, but for connection. With Sabiyou, learning a new culture feels natural, purposeful, and personal.</p>
 
         </div>
         
@@ -152,7 +152,7 @@ export default async function Home() {
           {data?.featured_services?.map((service: Service, index: number) => {
             return (
 
-              <div key={index} className="border-1 border-zinc-400 p-10 bg-[#f7c6ff]/20 shadow-lg rounded-xl flex flex-col space-y-4">
+              <div key={index} className="border-1 border-zinc-400 sm:px-10 py-10 px-4 bg-[#f7c6ff]/20 shadow-lg rounded-xl flex flex-col space-y-4">
                 <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/37cd95c0ba5cd5d93f88b0ed33c42203.png" width={500} height={500} alt="Sabi You Culture Learning Feature Image" className="w-22" />
                 <h2 className="text-xl/[40px] tracking-tighter font-bold">{service?.label}</h2>
                 <p className=" text-[18px]/[30px]"> {service?.text}</p>
@@ -173,17 +173,17 @@ export default async function Home() {
 
 
 
-      <section className="p-10 text-[#282829] xl:px-32 font-[family-name:var(--font-lexend)]">
-        <div className="grid lg:grid-cols-2 grid-cols-1 justify-center xl:space-x-32 space-x-10 gap-y-10">
+      <section className="sm:py-10 p-4 sm:px-10 text-[#282829] xl:px-32 font-[family-name:var(--font-lexend)]">
+        <div className="grid lg:grid-cols-2 grid-cols-1 justify-center xl:gap-x-32 gap-x-10 gap-y-10">
           <div className="flex flex-col gap-y-6 self-center">
             <h1 className="lg:text-4xl leading-normal text-3xl font-[Raleway] tracking-tighter font-bold">
-           Tune To SabiYou Radio & Get The Latest Culture Gist</h1>
-            <p className="leading-loose text-[18px]">Immerse yourself in the heart of our culture with SabiYou Radio. Tune in and discover captivating stories, music, and conversations that celebrate our rich heritage. Stay connected, stay inspired, and experience the voices that keep our traditions and stories alive.</p>
+           Tune To SabiYou Podcast & Get The Latest Culture Gist</h1>
+            <p className="leading-loose text-[18px]">Immerse yourself in the heart of our culture with SabiYou Podcast. Tune in and discover captivating stories, music, and conversations that celebrate our rich heritage. Stay connected, stay inspired, and experience the voices that keep our traditions and stories alive.</p>
               <div className="pt-4">
-              <a href="#" className="px-6 py-3 font-medium border-2 border-transparent hover:border-[#53007B] bg-[#53007B] hover:bg-transparent
+              <Link href="/podcast" className="px-6 py-3 font-medium border-2 border-transparent hover:border-[#53007B] bg-[#53007B] hover:bg-transparent
                     text-white hover:text-[#53007B] rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#53007B] focus:ring-offset-2 transition duration-300 ease-in-out">
               Start Listening
-            </a>
+            </Link>
             </div>
           </div>
           
@@ -196,7 +196,7 @@ export default async function Home() {
       </section>
 
 
-      <section className="font-[family-name:var(--font-lexend)] py-10 lg:py-32 xl:px-32 px-10  text-[18px]/[30px]">
+      <section className="font-[family-name:var(--font-lexend)] py-10 lg:py-32 xl:px-32 p-4 sm:px-10 sm:py-10 text-[18px]/[30px]">
      
         <h1 className="lg:text-5xl text-3xl text-[#282829] text-left font-[Raleway] tracking-tighter font-bold">
           Testimonials From Customers</h1>
@@ -215,9 +215,9 @@ export default async function Home() {
 
 
 
-      <section className="font-[family-name:var(--font-lexend)] xl:mx-32 mx-10 lg:pb-32 py-10">
+      <section className="font-[family-name:var(--font-lexend)] xl:mx-32 mx-4 sm:mx-10 sm:py-10 lg:pb-32 py-4">
 
-       <NewsletterForm />
+       <NewsletterForm /> 
 
 
 

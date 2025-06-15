@@ -29,7 +29,7 @@ export default async function Blog() {
                     <h1 className="lg:text-7xl/[80px] md:text-6xl/[70px] font-[family-name:var(--font-raleway)] tracking-tighter text-4xl/[50px] font-bold"><span
                         className="text-[#53007B]">SabiYou</span> Stories</h1>
                     <p>SabiYou is more than a platform—it’s a movement dedicated to preserving and <br
-                        className="hidden lg:block" />celebrating African
+                        className="hidden lg:block" />celebrating
                         culture through storytelling, discussion, and learning.</p>
                 </div>
 
