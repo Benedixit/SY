@@ -132,7 +132,7 @@ export default async function Home() {
             <Image src="/images/viking_culture.jpg" alt="Sabi You - App For Learning Languages" width={500} height={500} className="h-40 w-40 rounded-full object-cover object-center" />
           </div>
           <div className="rounded-full w-68 h-68 m-0 flex justify-center">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/hero_1.jpeg" alt="Sabi You - App For Learning Languages" width={500} height={500} className="h-64 w-64 rounded-full object-cover object-top" />
+            <Image src="/images/hero_1.jpeg" alt="Sabi You - App For Learning Languages" width={500} height={500} className="h-64 w-64 rounded-full object-cover object-top" />
           </div>
           <div className="rounded-full w-48 h-48 m-0 flex justify-center">
             <Image src="/images/chinese.jpg" alt="Sabi You - App For Learning Languages" width={500} height={500} className="h-40 w-40 rounded-full object-cover object-center" />
@@ -140,7 +140,7 @@ export default async function Home() {
         </div>
 
         <div className="rounded-xl w-full m-0 flex justify-center md:hidden">
-            <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/hero_1.jpeg" alt="Sabi You - App For Learning Languages" width={500} height={500} className="rounded-xl object-cover object-center" />
+            <Image src="/images/hero_1.jpeg" alt="Sabi You - App For Learning Languages" width={500} height={500} className="rounded-xl object-cover object-center" />
         </div>
       </section>
 
