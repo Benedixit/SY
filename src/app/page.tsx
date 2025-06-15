@@ -42,10 +42,16 @@ export const metadata = {
 };
 
 
+interface HomeLink {
+  url: string;
+  text: string;
+}
+
+
 
 
 interface Service {
-  link: string;
+  link: HomeLink;
   label: string;
   text: string;
 }
@@ -85,6 +91,8 @@ export default async function Home() {
     featured_services: Service[],
     testimonial: Testimonial[]
   }
+
+  console.log(data.featured_services)
 
 
   const getTruncated = (html: string, maxChars = 150) => {
@@ -156,7 +164,7 @@ export default async function Home() {
                 <Image src="https://pub-335ea302502b4be883413e4c10afa703.r2.dev/images/37cd95c0ba5cd5d93f88b0ed33c42203.png" width={500} height={500} alt="Sabi You Culture Learning Feature Image" className="w-22" />
                 <h2 className="text-xl/[40px] tracking-tighter font-bold">{service?.label}</h2>
                 <p className=" text-[18px]/[30px]"> {service?.text}</p>
-                <a href="" className="text-[#53007B]">Learn More</a>
+                <Link href={service.link.url} className="text-[#53007B]">Learn More</Link>
               </div>
 
             )
