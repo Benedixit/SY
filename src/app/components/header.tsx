@@ -10,7 +10,7 @@ export default function Header() {
 
     return (
         <header className={`bg-white fixed border-b-1 border-zinc-400 w-full font-medium text-[#282829] font-[family-name:var(--font-lexend)] tracking-tighter transition-all duration-300 ease-in-out text-[18px]} z-50`}>
-            <nav className="grid grid-cols-2 justify-center py-6 lg:mx-32 4xl:mx-64 mx-10 rounded-2xl">
+            <nav className="grid grid-cols-2 justify-center py-6 lg:mx-32 4xl:mx-64 mx-4 sm:mx-10 rounded-2xl">
                 <Link href="/"><Image src="/images/sabiyou_logo.png" alt="Sabiyou Logo" width={150} height={150} className="lg:w-20 w-14" /></Link>
                 <ul className="lg:flex gap-x-4 hidden place-items-center place-self-end">
                     <li className="py-2 px-4 rounded-lg hover:text-[#53007B]"><Link href="/">Home</Link></li>
