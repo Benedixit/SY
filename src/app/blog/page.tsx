@@ -24,7 +24,7 @@ export default async function Blog() {
     return (
         <>
         <section
-                className="text-[#282829] text-left md:text-center space-y-16 xl:pt-50 pt-32 lg:px-32 px-10 font-[family-name:var(--font-lexend)]  font-light text-[18px] leading-loose flex flex-col place-items-center">
+                className="text-[#282829] text-left md:text-center space-y-16 xl:pt-50 pt-32 lg:px-32 sm:px-10 px-4 font-[family-name:var(--font-lexend)]  font-light text-[18px] leading-loose flex flex-col place-items-center">
                 <div className="space-y-6">
                     <h1 className="lg:text-7xl/[80px] md:text-6xl/[70px] font-[family-name:var(--font-raleway)] tracking-tighter text-4xl/[50px] font-bold"><span
                         className="text-[#53007B]">SabiYou</span> Stories</h1>
@@ -35,7 +35,7 @@ export default async function Blog() {
 
             </section>
             
-      <section className="font-[family-name:var(--font-lexend)] xl:px-32 px-10 mb-32 py-10 xl:py-32">
+      <section className="font-[family-name:var(--font-lexend)] xl:px-32 sm:px-10 px-4 mb-32 py-10 xl:py-32">
         <div className="flex flex-col lg:flex-row gap-y-6 gap-x-4">
           {posts && posts.map((post) => (
             <div key={post.ID} className="border-1 border-zinc-400 flex flex-col space-y-10 justify-center gap-x-20 bg-[#f7c6ff]/20 shadow-lg rounded-2xl">
