@@ -76,7 +76,8 @@ export default async function Page() {
     return (
         <>
             <section
-                className="text-[#282829] text-left md:text-center space-y-16 xl:pt-50 pt-32 lg:px-32 px-10 font-[family-name:var(--font-lexend)]  font-light text-[18px] leading-loose flex flex-col place-items-center">
+                className="text-[#282829] text-left md:text-center space-y-16 xl:pt-50 pt-32 lg:px-32 px-4 sm:px-10
+                font-[family-name:var(--font-lexend)]  font-light text-[18px] leading-loose flex flex-col place-items-center">
                 <div className="space-y-6">
                     <h1 className="lg:text-7xl/[80px] md:text-6xl/[70px]  font-[family-name:var(--font-raleway)] tracking-tighter text-4xl/[50px] font-bold">About <span
                         className="text-[#53007B]">SabiYou</span></h1>
@@ -89,7 +90,8 @@ export default async function Page() {
 
 
             <section
-                className="text-[#282829] space-y-16 py-16 font-[family-name:var(--font-lexend)]  font-light text-[18px] leading-relaxed px-10 xl:px-32">
+                className="text-[#282829] space-y-16 py-16 font-[family-name:var(--font-lexend)] 
+                font-light text-[18px] leading-relaxed px-4 sm:px-10 xl:px-32">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div className="bg-[url('/images/mission_2.jpg')] bg-cover bg-center flex rounded-2xl">
                         <div className="space-y-4 bg-[#FDF4FF] bg-blend-multiply lg:m-6 m-2 p-10 rounded-2xl border-1 border-zinc-400 shadow-lg self-end">
@@ -125,7 +127,7 @@ export default async function Page() {
 
             </section>
 
-            <section className="py-16 xl:px-32 px-10 space-y-10 text-[#282829] font-[family-name:var(--font-lexend)]">
+            <section className="py-16 xl:px-32 px-4 sm:px-10 space-y-10 text-[#282829] font-[family-name:var(--font-lexend)]">
                 <h1 className="font-[family-name:var(--font-raleway)] font-bold text-4xl tracking-tight">Meet Our Team</h1>
                 <p className="font-[family-name:var(--font-lexend)] font-light text-[18px] leading-loose w-full lg:w-1/2 md:w-2/3">We are a group of passionate creators, thinkers, and doers—each bringing unique skills and perspectives to the table. Together, we collaborate, innovate, and push boundaries to turn ideas into impact.</p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">

@@ -37,7 +37,7 @@ export default async function Contact() {
         <>
        
             
-            <section className="grid lg:grid-cols-2 xl:px-32 px-10 xl:gap-x-24 gap-10 space-y-20 xl:pt-50 pt-32 xl:pb-32 pb-10 font-[family-name:var(--font-lexend)] text-[18px]/[34px] font-light text-[#282829]">
+            <section className="grid lg:grid-cols-2 xl:px-32 px-4 sm:px-10 xl:gap-x-24 gap-10 space-y-20 xl:pt-50 pt-32 xl:pb-32 pb-10 font-[family-name:var(--font-lexend)] text-[18px]/[34px] font-light text-[#282829]">
             <div className="h-full w-full xl:bg-[url('/images/54675.jpg')] bg-transparent xl:py-10 flex rounded-2xl">
                 <div className="flex flex-col space-y-8 bg-[#FDF4FF] xl:mx-10 p-10 border-1 border-zinc-400 rounded-2xl shadow-lg self-center place-content-center h-full">
                     <h1 className="text-5xl font-[family-name:var(--font-Raleway)] font-medium text-[#53007B] tracking-tight">Contact Us</h1>
@@ -59,7 +59,7 @@ export default async function Contact() {
             </section>
 
 
-            <section className="xl:mx-32 mx-10 mb-16 xl:mb-32 border-1 border-zinc-400 rounded-2xl shadow-3xl overflow-hidden"> 
+            <section className="xl:mx-32 mx-4 sm:mx-10 mb-16 xl:mb-32 border-1 border-zinc-400 rounded-2xl shadow-3xl overflow-hidden"> 
                 <GoogleMap />
             </section>
 

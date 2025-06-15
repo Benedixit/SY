@@ -232,7 +232,7 @@ export default async function Home() {
       </section>
 
 
-      <section className="font-[family-name:var(--font-lexend)] xl:px-32 px-10 mb-32 py-10">
+      <section className="font-[family-name:var(--font-lexend)] xl:px-32 px-4 sm:px-10 mb-32 py-10">
         <h1
           className="lg:text-5xl text-3xl text-[#282829] text-left font-[Raleway] tracking-tighter font-bold pb-16">
           Featured Stories
