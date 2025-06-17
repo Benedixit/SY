@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Lexend_Deca, Raleway } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/footer";
 import Header from "./components/header";
-import TawkToChat from "./components/tawk";
 
 
 const LexendSans = Lexend_Deca({
