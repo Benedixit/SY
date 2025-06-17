@@ -53,7 +53,7 @@ export default function RootLayout({
 
 
         <Footer />
-        <TawkToChat />
+       
 
       </body>
     </html>
