@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import Image from "next/image";
 import LottieAnimation from "./components/radioLottie";
 import { createClient } from  './../prismicio'
