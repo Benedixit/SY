@@ -1,5 +1,3 @@
-export const dynamic = 'force-dynamic';
-
 import Image from "next/image";
 import LottieAnimation from "./components/radioLottie";
 import { createClient } from  './../prismicio'
