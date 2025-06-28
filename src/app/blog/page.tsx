@@ -8,12 +8,7 @@ export default async function Blog() {
 
 
     const response = await getPosts({ number: 100 })
-    let posts: any[] = []
-    if (response && response.posts) {
-        posts = response.posts;
-    } else {
-        console.error("No posts found or error fetching posts");
-    }
+    const posts = response.posts || []
 
 
 
