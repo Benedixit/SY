@@ -8,13 +8,18 @@ export default async function Blog() {
 
 
     const response = await getPosts({ number: 100 })
-    const posts = response.posts
+    let posts: any[] = []
+    if (response && response.posts) {
+        posts = response.posts;
+    } else {
+        console.error("No posts found or error fetching posts");
+    }
 
 
 
 
     const getTruncated = (html: string, maxChars = 150) => {
-        const text = html.replace(/<[^>]+>/g, ''); // remove tags
+        const text = html.replace(/<[^>]+>/g, '');
         if (text.length <= maxChars) return text;
         return text.slice(0, maxChars).trimEnd() + '…';
     };
