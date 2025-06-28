@@ -2,46 +2,46 @@ import { WordPressPost } from "../types/wordpress";
 
 
 
-const SITE_URL = 'sabiyou2025.wordpress.com'; // Replace with your site
+const SITE_URL = process.env.WORDPRESS_URL;
 
 export async function getPostBySlug(slug: string): Promise<WordPressPost> {
-  const response = await fetch(
-    `https://public-api.wordpress.com/rest/v1.1/sites/${SITE_URL}/posts/slug:${slug}`,
-    {
-      next: { revalidate: 3600 } // Cache for 1 hour
-    }
-  );
+    const response = await fetch(
+        `https://public-api.wordpress.com/rest/v1.1/sites/${SITE_URL}/posts/slug:${slug}`,
+        {
+            next: { revalidate: 3600 } // Cache for 1 hour
+        }
+    );
 
-  if (!response.ok) {
-    if (response.status === 404) {
-      throw new Error('Post not found');
+    if (!response.ok) {
+        if (response.status === 404) {
+            throw new Error('Post not found');
+        }
+        throw new Error('Failed to fetch post');
     }
-    throw new Error('Failed to fetch post');
-  }
 
-  return response.json();
+    return response.json();
 }
 
 export async function getPosts(params?: {
-  number?: number;
-  offset?: number;
-  category?: string;
+    number?: number;
+    offset?: number;
+    category?: string;
 }): Promise<{ posts: WordPressPost[]; found: number }> {
-  const searchParams = new URLSearchParams();
-  if (params?.number) searchParams.set('number', params.number.toString());
-  if (params?.offset) searchParams.set('offset', params.offset.toString());
-  if (params?.category) searchParams.set('category', params.category);
+    const searchParams = new URLSearchParams();
+    if (params?.number) searchParams.set('number', params.number.toString());
+    if (params?.offset) searchParams.set('offset', params.offset.toString());
+    if (params?.category) searchParams.set('category', params.category);
 
-  const response = await fetch(
-    `https://public-api.wordpress.com/rest/v1.1/sites/${SITE_URL}/posts?${searchParams}`,
-    {
-      next: { revalidate: 3600 }
+    const response = await fetch(
+        `https://public-api.wordpress.com/rest/v1.1/sites/${SITE_URL}/posts?${searchParams}`,
+        {
+            next: { revalidate: 3600 }
+        }
+    );
+
+    if (!response.ok) {
+        throw new Error('Failed to fetch posts');
     }
-  );
 
-  if (!response.ok) {
-    throw new Error('Failed to fetch posts');
-  }
-
-  return response.json();
+    return response.json();
 }

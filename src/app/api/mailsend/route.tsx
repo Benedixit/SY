@@ -19,12 +19,6 @@ export async function POST(request: Request) {
     },
   });
 
-  try {
-    await transporter.verify();
-    console.log("Server is ready to take our messages");
-    } catch (err) {
-    console.error("Verification failed", err);
-    }
 
 
   try {

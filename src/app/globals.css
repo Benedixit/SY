@@ -29,12 +29,25 @@ body {
   font-size: 18px;
   font-weight: light;
   line-height: 34px;
-  margin-top: 12px
+  margin-top: 12px;
+}
 
+.prose ul {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.prose h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.prose img {
+  margin-top: 20px;
 }
 
 .prose h2, h3, h4, h5 {
   margin-top: 24px;
   font-size: 24px;
-  font-weight: medium;
+  font-weight: 700;
 }

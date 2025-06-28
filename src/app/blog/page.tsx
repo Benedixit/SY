@@ -36,7 +36,7 @@ export default async function Blog() {
             </section>
             
       <section className="font-[family-name:var(--font-lexend)] xl:px-32 sm:px-10 px-4 mb-32 py-10 xl:py-32">
-        <div className="flex flex-col lg:flex-row gap-y-6 gap-x-4">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-y-6 gap-x-4">
           {posts && posts.map((post) => (
             <div key={post.ID} className="border-1 border-zinc-400 flex flex-col space-y-10 justify-center gap-x-20 bg-[#f7c6ff]/20 shadow-lg rounded-2xl">
 
