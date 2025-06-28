@@ -12,8 +12,7 @@ export default async function Blog() {
     const response = await getPosts({ number: 100 })
     let posts: { ID: number; title: string; excerpt: string; slug: string; featured_image?: string }[] = [];
     
-    try {
-      const response = await getPosts({ number: 100 });
+    try {  
       posts = response.posts || [];
     } catch (error) {
       console.error("Failed to fetch posts:", error);
